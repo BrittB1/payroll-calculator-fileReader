@@ -6,14 +6,11 @@ public class Employee {
     private double hoursWorked;
     private double payRate;
 
-    public Employee() {
-        this.employeeId = employeeId;
-        this.name = name;
-        this.hoursWorked = hoursWorked;
-        this.payRate = payRate;
-    }
-
     public Employee(int id, String empName, double hours, double pay) {
+        this.employeeId = id;
+        this.name = empName;
+        this.hoursWorked = hours;
+        this.payRate = pay;
     }
 
     public int getEmployeeId() {
@@ -45,6 +42,6 @@ public class Employee {
     }
 
     public double getGrossPay() {
-        return hoursWorked * payRate;
+        return this.hoursWorked * this.payRate;
     }
 }

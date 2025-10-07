@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 // Step 1: Import proper tools
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,11 +14,13 @@ public class PayrollCalculator {
             FileReader reader = new FileReader("src/main/resources/employees.csv");
             BufferedReader bufReader = new BufferedReader(reader);
 
-            String line;
-            while ((line = bufReader.readLine()) != null) {
+            String headerLine = bufReader.readLine();
+
+            String input;
+            while ((input = bufReader.readLine()) != null) {
 
                 // Part 3: Split the line being read inside the loop
-                String[] tokens = line.split("\\|");
+                String[] tokens = input.split("\\|");
 
                 // Part 5: Convert the data while its in the loop
                 int id = Integer.parseInt(tokens[0]);
@@ -34,7 +37,7 @@ public class PayrollCalculator {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
