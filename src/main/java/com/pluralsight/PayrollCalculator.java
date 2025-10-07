@@ -9,7 +9,6 @@ public class PayrollCalculator {
     public static void main(String[] args) {
 
         // Step 2: try-with opens the file
-        Employee employee = null;
         try {
             FileReader reader = new FileReader("src/main/resources/employees.csv");
             BufferedReader bufReader = new BufferedReader(reader);
@@ -27,14 +26,15 @@ public class PayrollCalculator {
                 double pay = Double.parseDouble(tokens[3]);
 
                 // Part 6: Create the employee object in the loop also
-                employee = new Employee(id, empName, hours, pay);
+                Employee employee = new Employee(id, empName, hours, pay);
+
+                System.out.printf("Employee ID: %d%n", employee.getEmployeeId());
+                System.out.printf("Name: %s%n", employee.getName());
+                System.out.printf("Gross pay: %.2f%n%n", employee.getGrossPay());
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.printf("Employee ID: %d%n", employee.getEmployeeId());
-        System.out.printf("Name: %s%n", employee.getName());
-        System.out.printf("Gross pay: %.2f%n%n", employee.getGrossPay());
     }
 }
